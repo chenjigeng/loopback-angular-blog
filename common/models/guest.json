@@ -1,9 +1,12 @@
 {
-  "name": "Todo",
+  "name": "guest",
   "base": "PersistedModel",
   "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
   "properties": {
-    "content": {
+    "name": {
       "type": "string",
       "required": true
     }

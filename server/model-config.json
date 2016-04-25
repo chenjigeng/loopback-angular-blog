@@ -29,5 +29,25 @@
   "Todo": {
     "dataSource": "db",
     "public": true
+  },
+  "Bloger": {
+    "dataSource": "MongoDs",
+    "public": true
+  },
+  "guest": {
+    "dataSource": "MongoDs",
+    "public": true
+  },
+  "owner": {
+    "dataSource": "MongoDs",
+    "public": true
+  },
+  "passage": {
+    "dataSource": "MongoDs",
+    "public": true
+  },
+  "comment": {
+    "dataSource": "MongoDs",
+    "public": true
   }
 }

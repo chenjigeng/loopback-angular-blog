@@ -1,0 +1,13 @@
+<h1>Users</h1>
+<br>
+<form name="todoForm" novalidate ng-submit="addUser(name, password)">
+	<input type="text" name = "name" ng-model="name" 
+	class="form-control focus" required width="200"></input>
+	<input type='password' name='password' ng-model='password' required/>
+  <button class="btn btn-default">Add</button>
+</form>
+{{name}}
+{{password}}
+<div ng-repeat='user in users'>
+	<p>username: {{user.name}}</p>
+</div>

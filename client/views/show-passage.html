@@ -1,0 +1,20 @@
+<div layout-align='space-between center' layout-warp class="md-whiteframe-5dp show-passage">
+	<h1 class='md-display-1 title'>{{passage.title}}</h1>
+	<md-content flex layout-padding>
+		<p>{{passage.content}}</p>
+		<div flex-offset='85'>作者:{{passage.owner.email}}</div>
+	</md-content>
+	<div layout-align="left center" layout-warp layout='row' class='comment-num'>	
+		<span class="content">评论({{passage.comments.length}})||</span>
+		<span>浏览数(110)</span>
+	</div>
+	<div ng-repeat='comment in passage.comments' class='comment-num md-whiteframe-5dp comments' >
+		<p>#{{$index + 1}}楼 {{comment.create_time.toLocaleString() }} | {{comment.owner.email}}</p>
+		<p>{{comment.content}}</p>
+		<!--<button ng-click='deletecom(comment.id)'>删除评论</button>-->
+	</div>
+	<form ng-submit='submitComment()'>
+		<textarea ng-model='comment' width="500" class='comment'></textarea>
+		<md-button type='submit' class='md-raised md-primary'>提交评论</md-button>
+	</form>
+</div>

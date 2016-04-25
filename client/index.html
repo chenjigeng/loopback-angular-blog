@@ -7,9 +7,9 @@
     <title>LoopBack Angular example</title>
 
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
     <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,10 +18,14 @@
     <![endif]-->
   </head>
   <body ng-app="app">
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" layout='row' role="navigation" id = 'navbar'>
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">LoopBack Angular example</a>
+          <a class="navbar-brand" ui-sref="mainpage">LoopBack Angular example</a>
+          <a ng-if="islogin==true" class="navbar-brand" ui-sref="home">Home</a>
+          <a ng-if="islogin==false" ui-sref='login' class='navbar-brand'>Login</a>
+          <a ng-if='islogin==false' ui-sref='regist' class='navbar-brand'>Regist</a>
+          <a ng-if='islogin==true' ui-sref='logout' class="navbar-brand">Logout</a>
         </div>
       </div>
     </div>
@@ -29,14 +33,24 @@
     <div class="container">
       <div ui-view></div>
     </div>
-
     <script src="vendor/jquery/dist/jquery.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
     <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-aria/angular-aria.js"></script> 
+    <script src="vendor/angular-animate/angular-animate.js"></script> 
+    <script src="vendor/angular-material/angular-material.js"></script>
+    <script src="vendor/angular-messages/angular-messages.js"></script>
     <script src="vendor/angular-resource/angular-resource.js"></script>
     <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="vendor/moment/moment.js"></script>
+    <script src="vendor/moment/locale/de.js"></script>
+    <script src="vendor/angular-moment/angular-moment.js"></script>
     <script src="js/services/lb-services.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/services/auth.js"></script>
     <script src="js/controllers/todo.js"></script>
+    <script src='js/controllers/user.js'></script>
+    <script src='js/controllers/auth.js'></script>
+    <script src="js/controllers/passage.js"></script>
   </body>
 </html>

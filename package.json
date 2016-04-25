@@ -10,12 +10,20 @@
     "test": "tape tests/**/*.js"
   },
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.5",
+    "angular-aria": "^1.5.5",
+    "angular-material": "^1.0.7",
+    "angular-messages": "^1.5.5",
+    "angular-moment": "^1.0.0-beta.5",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "errorhandler": "^1.1.1",
     "loopback": "^2.14.0",
     "loopback-boot": "^2.6.5",
+    "loopback-connector-mongodb": "^1.4.5",
     "loopback-datasource-juggler": "^2.19.0",
+    "moment": "^2.13.0",
     "serve-favicon": "^2.0.1"
   },
   "optionalDependencies": {

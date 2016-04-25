@@ -4,3 +4,50 @@ body {
 .glyphicon-remove:hover {
   cursor:pointer
 }
+
+#navbar {
+	margin-bottom: 20px;
+}
+
+.passage {
+	padding-bottom: 10px;
+	margin-left: 10px;
+}
+
+.Login {
+	margin-top: 20px;
+}
+
+.query {
+	margin: 0;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.title {
+	margin: 10px;
+	padding: 10px;
+	padding-top: 30px;
+	color: #1A8BC8;
+}
+
+.show-passage {
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.comment {
+	margin-left: 10px;
+	padding-left: 10px;
+	width: 1100px;
+	height: 200px;
+}
+
+.comment-num {
+	margin-left: 10px;
+}
+
+.comments {
+	margin: 10px;
+	padding: 10px;
+}
