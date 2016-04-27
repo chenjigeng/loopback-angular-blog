@@ -65,6 +65,7 @@
 			$scope.passages = [];
 			$scope.edit = edit;
 			$scope.remove = remove;
+			$scope.check = check;
 			getPassage();
 			function getPassage() {
 				Passage
@@ -93,6 +94,10 @@
 					.then(function() {
 						$state.go("mainpage");
 					})
+			}
+			function check(id) {
+				$rootScope.passId = id;
+				$state.go("show-passage");
 			}
 		}
 		ShowPageCtrl.$inject = ['$scope', 'Passage', "$window", "Owner", "$rootScope", "$state"];

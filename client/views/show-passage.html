@@ -1,8 +1,8 @@
 <div layout-align='space-between center' layout-warp class="md-whiteframe-5dp show-passage">
 	<h1 class='md-display-1 title'>{{passage.title}}</h1>
-	<md-content flex layout-padding>
+	<md-content flex layout-padding class='md-title'>
 		<p>{{passage.content}}</p>
-		<div flex-offset='85'>作者:{{passage.owner.email}}</div>
+		<div class='md-block author'>作者:{{passage.owner.email}}</div>
 	</md-content>
 	<div layout-align="left center" layout-warp layout='row' class='comment-num'>	
 		<span class="content">评论({{passage.comments.length}})||</span>
@@ -14,7 +14,7 @@
 		<!--<button ng-click='deletecom(comment.id)'>删除评论</button>-->
 	</div>
 	<form ng-submit='submitComment()'>
-		<textarea ng-model='comment' width="500" class='comment'></textarea>
+		<textarea ng-model='comment' width="500" class='comment p10'></textarea>
 		<md-button type='submit' class='md-raised md-primary'>提交评论</md-button>
 	</form>
 </div>

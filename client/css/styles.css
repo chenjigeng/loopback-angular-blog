@@ -1,5 +1,5 @@
 body {
-  padding-top:50px
+  padding-top:50px;
 }
 .glyphicon-remove:hover {
   cursor:pointer
@@ -50,4 +50,37 @@ body {
 .comments {
 	margin: 10px;
 	padding: 10px;
+}
+
+.author {
+	float: right;
+}
+
+.md-body1 {
+	color: blue;
+}
+
+.profile {
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.profilePage {
+	margin-left: 20px;
+}
+
+.passagesPage {
+	padding: 10px;
+}
+
+.p10 {
+	padding: 10px;
+}
+
+.m10 {
+	margin: 10px;
+}
+
+.p20 {
+	padding: 20px;
 }

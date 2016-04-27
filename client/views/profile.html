@@ -1,7 +1,9 @@
-<h1>Your profile:</h1>
-<h3>email:{{User.email}}</h3>
-<h3>username:{{User.username}}</h3>
-<p>
-	<button><a ui-sref="create-page">create page</a></button>
-	<button><a ui-sref="edit-profile">edit profiles</a></button>
-</p>
+<div class="md-whiteframe-5dp profile">
+	<h1>你的资料:</h1>
+	<h3 ng-if="User.email">邮箱:{{User.email}}</h3>
+	<h3 ng-if='User.username'>用户名:{{User.username}}</h3>
+	<p>
+		<md-button class="md-raised md-primary md-body1"><a ui-sref="create-page">发表文章</a></md-button>
+		<md-button class="md-raised md-primary md-body1"><a ui-sref="edit-profile">编辑信息</a></md-button>
+	</p>
+</div>

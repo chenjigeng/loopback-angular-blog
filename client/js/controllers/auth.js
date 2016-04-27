@@ -9,9 +9,9 @@
 	ProfileCtrl.$inject = ['$scope', "Owner", "$rootScope"];
 	function ProfileCtrl($scope, Owner, $rootScope) {
 		$scope.User = Owner
-										.findById({
-											id: $rootScope.currentUser.id
-										});
+						.findById({
+							id: $rootScope.currentUser.id
+						});
 	}
 	RegistCtrl.$inject = ["$scope", "AuthService", "$state", "$window", "$rootScope"];
 	function RegistCtrl($scope, AuthService, $state, $window, $rootScope) {

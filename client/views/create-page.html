@@ -1,6 +1,11 @@
 <h1>Create page</h1>
-<form ng-submit="createPage()">
-	<input type="text" ng-model="title" width="200" />
-	<input type = 'text' ng-model = 'content' width="200" />
-	<button>创建新的文章</button>
-</form>
+<div class="md-whiteframe-5dp p20" layout-align="center" layout='column'>
+	<form ng-submit="createPage()" name='Password'>
+		<md-input-container class='md-block md-title'>
+			<label>标题</label>
+			<input type="text" ng-model="title" required/>
+		</md-input-container>
+		<textarea  rows='5' cols='155' ng-model = 'content' required/>
+		<md-button type = 'submit' class='md-block md-raised md-primary' ng-disabled="Password.$invalid">创建新的文章</md-button>
+	</form>
+</div>

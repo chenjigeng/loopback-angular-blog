@@ -3,7 +3,6 @@ angular
   .module('app', [
     'lbServices',
     'ui.router',
-    'angularMoment',
     'ngMaterial',
      'ngMessages'
   ])
@@ -88,8 +87,8 @@ angular
 
     $urlRouterProvider.otherwise('mainpage');
   }])
-  .run(['$rootScope', "$state","amMoment", init])
-  function init($rootScope, $state, amMoment) {
+  .run(['$rootScope', "$state", init])
+  function init($rootScope, $state) {
     $rootScope.islogin = false;
     $rootScope.$on('$stateChangeStart', function(event, next) {
       if (next.authenticate && !$rootScope.currentUser) {

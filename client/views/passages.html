@@ -1,7 +1,10 @@
-<h1>Your Passage:</h1>
-<div ng-repeat="passage in passages">
-	<p>title:{{passage.title}}</p>
-	<p>content:{{passage.content}}</p>
-	<button ng-click="edit(passage.id)">编辑</button>
-	<button ng-click="remove(passage.id)">删除</button>
+<div class="md-whiteframe-5dp">
+	<h1>Your Passage:</h1>
+	<div ng-repeat="passage in passages">
+		<div class='md-title passage'>
+			<div><a ng-click="check(passage.id)">{{passage.title}}</a></div>
+		</div>
+		<md-button class="md-primary md-raised" ng-click="edit(passage.id)">编辑</md-button>
+		<md-button ng-click="remove(passage.id)" class="md-warn md-raised m10">删除</md-button>
+	</div>
 </div>

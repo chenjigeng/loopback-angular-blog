@@ -17,7 +17,7 @@ var TWO_WEEKS = 60 * 60 * 24 * 7 * 2;
 								$rootScope.currentUser = {
 									id : response.user.id,
 									tokenId: response.id,
-								  email: email
+								 	email: email
 								}
 								console.log($rootScope.currentUser);
 							})
