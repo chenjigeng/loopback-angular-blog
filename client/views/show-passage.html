@@ -6,11 +6,15 @@
 	</md-content>
 	<div layout-align="left center" layout-warp layout='row' class='comment-num'>	
 		<span class="content">评论({{passage.comments.length}})||</span>
-		<span>浏览数(110)</span>
+		<span>浏览数(100)</span>
 	</div>
 	<div ng-repeat='comment in passage.comments' class='comment-num md-whiteframe-5dp comments' >
-		<p>#{{$index + 1}}楼 {{comment.create_time.toLocaleString() }} | {{comment.owner.email}}</p>
+		<p>#{{$index + 1}}楼 <span am-time-ago='comment.create_time'></span> | {{comment.owner.email}}</p>
 		<p>{{comment.content}}</p>
+		<div layout-align='end' layout='row'>
+			<span ng-click="pride(comment.id, $index)">赞({{ comment.pride }})</span>
+		</div>
+			<!-- icon-thumb-up-outline  icon-thumb-up-->
 		<!--<button ng-click='deletecom(comment.id)'>删除评论</button>-->
 	</div>
 	<form ng-submit='submitComment()'>

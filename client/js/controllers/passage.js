@@ -11,14 +11,28 @@
 		function PageCtrl($scope, Passage, $window, Owner, $rootScope, $state, Comment) {
 			$scope.submitComment = submitComment;
 			$scope.deletecom = deletecom;
+			$scope.pride = pride;
 			getPassage();
+			function pride(id, id1) {
+				$scope.passage.comments[id1].pride += 1;
+				Comment.findById({
+					id: id
+				})
+				.$promise
+				.then(function(data) {
+					data.pride += 1;
+					data.$save();
+					console.log(data);
+				})
+			}
 			function submitComment() {
 				Comment
 					.create({
 						content: $scope.comment,
 						passageId: $rootScope.passId,
 						create_time: new Date(),
-						ownerId: $rootScope.currentUser.id
+						ownerId: $rootScope.currentUser.id,
+						pride: 0
 					})
 					.$promise
 					.then(function(comment) {
@@ -39,7 +53,11 @@
 					.$promise
 					.then(function(passage) {
 						$scope.passage = passage[0];
+						console.log($scope.passage);
+						//$scope.passage.$save();
+						console.log($scope.passage);
 						console.log(passage[0].comments);
+						// 200607828
 					})
 			}
 			function deletecom(id) {
@@ -61,7 +79,7 @@
 		}
 
 		ShowUserPageCtrl.$inject = ['$scope', "Passage", "$window", "Owner", "$rootScope", '$state'];
-		function ShowUserPageCtrl($scope, Passage, $window, Owner, $rootScope, $state) {
+		function ShowUserPageCtrl($scope, Passage, $window, Owner, $rootScope, $state, $moment) {
 			$scope.passages = [];
 			$scope.edit = edit;
 			$scope.remove = remove;
@@ -105,10 +123,6 @@
 			$scope.passages = [];
 			$scope.login = false;
 			$scope.check = check;
-			$scope.message = {
-			   text: 'hello world!',
-			   time: new Date()
-			};
 			getpassage();
 			function check(id) {
 				$rootScope.passId = id;

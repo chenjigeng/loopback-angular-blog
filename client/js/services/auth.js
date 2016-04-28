@@ -1,8 +1,8 @@
 var TWO_WEEKS = 60 * 60 * 24 * 7 * 2;
 	angular
 		.module("app")
-		.factory("AuthService", ["$q", "$rootScope", 'Owner', "$window", AuthServices]);
-	function AuthServices($q, $rootScope, User, $window) {
+		.factory("AuthService", ["$q", "$rootScope", 'Owner', "$window", "Profile","$location",AuthServices]);
+	function AuthServices($q, $rootScope, User, $window, Profile, $location) {
 		var service = {
 			login: login,
 			logout: logout,
@@ -11,7 +11,11 @@ var TWO_WEEKS = 60 * 60 * 24 * 7 * 2;
 		return service;
 		function login(email, password) {
 			return User
-							.login({rememberMe:true, email:email, password: password, ttl: TWO_WEEKS})
+							.login({rememberMe:true, email:email, password: password, ttl: TWO_WEEKS}, function() {
+								var next = $location.nextAfterLogin || '/';
+ 								$location.nextAfterLogin = null;
+  								$location.path(next);
+							})
 							.$promise
 							.then(function(response) {
 								$rootScope.currentUser = {
@@ -33,8 +37,20 @@ var TWO_WEEKS = 60 * 60 * 24 * 7 * 2;
 		}
 		function regist(email, password, username) {
 			return User
-				.create({email: email, password: password, username: username})
+				.create({email: email, password: password})
 				.$promise
+				.then(function(data) {
+					console.log(data);
+					Profile
+						.create({
+						username: username,
+						ownerId: data.id
+						})
+						.$promise
+						.then(function(data) {
+							console.log(data);
+						});
+					});
 		}
 	}
 

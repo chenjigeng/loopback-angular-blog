@@ -1,14 +1,14 @@
-<md-content layout-padding flex='60' layout-wrap class="md-body-2 md-whiteframe-1dp Login">
+<md-content layout-padding flex='60' layout-wrap class="md-title md-whiteframe-1dp Login">
 	<h3>Login here</h3>
 	<form ng-submit="submit()" name='login'>
 		<md-input-container class='md-block'>
-			<label>Email</label>
+			<label>邮箱</label>
 			<input type="email" ng-model="email" required/>
 		</md-input-container>
 		<md-input-container class='md-block'>
-			<label>Password</label>
+			<label>密码</label>
 			<input type="password" ng-model="password" required></input>
 		</md-input-container>
-		<md-button type='submit' class = "md-raised md-primary" ng-disabled="login.$invalid">submit</button>
+		<md-button type='submit' class = "md-raised md-primary" ng-disabled="login.$invalid">submit</md-button>
 	</form>
 </md-content>

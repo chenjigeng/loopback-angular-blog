@@ -1,7 +1,18 @@
-<h1>Regist here</h1>
-<form ng-submit="submit()">
-	email:<input type="email" ng-model="email" required/><br />
-	password:<input type="password" ng-model="password" required></input><br />
-	username:<input type='text' ng-model='username' required/><br/>
-	<button >submit</button>
-</form>
+<md-content  layout-padding class="md-title md-whiteframe-1dp mt20" flex='60'>
+	<h3>Regist here</h3>
+	<form ng-submit="submit()" name='regist'>
+		<md-input-container class="md-block">
+			<label>邮箱</label>
+			<input type="email" ng-model="email" required/><br />
+		</md-input-container>
+		<md-input-container class="md-block">
+			<label>密码</label>
+			<input type="password" ng-model="password" required></input>
+		</md-input-container>
+		<md-input-container class='md-block'>
+			<label>用户名</label>
+			<input type='text' ng-model='username' required/><br/>
+		</md-input-container>
+		<md-button type="submit" ng-disabled="regist.$invalid" class="md-primary md-raised">创建</md-button>
+	</form>
+</md-content>

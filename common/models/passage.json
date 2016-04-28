@@ -13,6 +13,10 @@
     "content": {
       "type": "string",
       "required": true
+    },
+    "pageview": {
+      "type": "number",
+      "default": "0"
     }
   },
   "validations": [],

@@ -1,9 +1,15 @@
-<div class="md-whiteframe-5dp profile">
+<div class="md-whiteframe-5dp profile p20" layout-align='center start' layout='column'>
 	<h1>你的资料:</h1>
 	<h3 ng-if="User.email">邮箱:{{User.email}}</h3>
-	<h3 ng-if='User.username'>用户名:{{User.username}}</h3>
+	<h3 ng-if='User.profiles.username'>用户名:{{User.profiles.username}}</h3>
+	<h3 ng-if="User.profiles.QQ">
+		QQ: {{ User.profiles.QQ}}
+	</h3>
+	<h3 ng-if="User.profiles.phone">
+		手机:{{ User.profiles.phone}}
+	</h3>
 	<p>
-		<md-button class="md-raised md-primary md-body1"><a ui-sref="create-page">发表文章</a></md-button>
-		<md-button class="md-raised md-primary md-body1"><a ui-sref="edit-profile">编辑信息</a></md-button>
+		<md-button class="md-raised md-primary md-body1" ui-sref="create-page">发表文章</md-button>
+		<md-button class="md-raised md-primary md-body1" ui-sref="edit-profile">编辑信息</md-button>
 	</p>
 </div>

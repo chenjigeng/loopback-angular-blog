@@ -49,5 +49,9 @@
   "comment": {
     "dataSource": "MongoDs",
     "public": true
+  },
+  "Profile": {
+    "dataSource": "MongoDs",
+    "public": true
   }
 }

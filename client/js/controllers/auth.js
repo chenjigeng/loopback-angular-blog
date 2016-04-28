@@ -8,19 +8,27 @@
 		.controller("ProfileCtrl", ProfileCtrl);
 	ProfileCtrl.$inject = ['$scope', "Owner", "$rootScope"];
 	function ProfileCtrl($scope, Owner, $rootScope) {
-		$scope.User = Owner
+					Owner
 						.findById({
-							id: $rootScope.currentUser.id
-						});
+							id: $rootScope.currentUser.id,
+							filter: {
+								include: ['passages', 'profiles']
+							}
+						})
+						.$promise
+						.then(function(data) {
+							$scope.User = data;
+							console.log(data);
+							console.log($scope.User);
+						})
 	}
-	RegistCtrl.$inject = ["$scope", "AuthService", "$state", "$window", "$rootScope"];
-	function RegistCtrl($scope, AuthService, $state, $window, $rootScope) {
+	RegistCtrl.$inject = ["$scope", "AuthService", "$state", "$window", "$rootScope", "Profile"];
+	function RegistCtrl($scope, AuthService, $state, $window, $rootScope, Profile) {
 		$scope.email = "";
 		$scope.password = "";
 		$scope.submit = submit;
 		check();
 		function submit() {
-			$window.alert("123");
 			AuthService
 				.regist($scope.email, $scope.password, $scope.username)
 				.then(function() {

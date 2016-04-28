@@ -37,13 +37,26 @@
 			}
 		])
 		.controller("EditProfileCtrl", EditProfileCtrl);
-		EditProfileCtrl.$inject = ['$scope', "$rootScope", "Owner"];
-		function EditProfileCtrl($scope, $rootScope, User) {
-			$scope.user = User.findById({id: $rootScope.currentUser.id});
+		EditProfileCtrl.$inject = ['$scope', "$rootScope", "Owner", "Profile", "$state"];
+		function EditProfileCtrl($scope, $rootScope, User, Profile, $state) {
+			Profile.find({
+				filter: {
+					where: {
+						ownerId: $rootScope.currentUser.id
+					}
+				}
+			})
+			.$promise
+			.then(function(user) {
+				console.log(user);
+				console.log(user[0]);
+				$scope.user = user[0];
+			})
 		  $scope.submit = submit;
 		  function submit() {
 		  	console.log($scope.user);
 		  	$scope.user.$save();
+		  	$state.go("home");
 		  }
 		}
 

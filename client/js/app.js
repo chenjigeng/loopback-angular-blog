@@ -4,10 +4,16 @@ angular
     'lbServices',
     'ui.router',
     'ngMaterial',
-     'ngMessages'
+     'ngMessages',
+     'angularMoment'
+     // "material.svgAssetsCache"
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
+
+    // $momentProvider
+    //   .asyncLoading(false)
+    //   .scriptUrl('../static/js/moment.min.js');
     $stateProvider
       .state("login", {
         url: '/login',
@@ -88,6 +94,23 @@ angular
     $urlRouterProvider.otherwise('mainpage');
   }])
   .run(['$rootScope', "$state", init])
+  .config(function($mdThemingProvider, $httpProvider) {
+    $mdThemingProvider.theme("default");
+    $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
+      return {
+        responseError: function(rejection) {
+        if (rejection.status == 401) {
+          //Now clearing the loopback values from client browser for safe logout...
+          LoopBackAuth.clearUser();
+          LoopBackAuth.clearStorage();
+          $location.nextAfterLogin = $location.path();
+          $location.path('/login');
+        }
+        return $q.reject(rejection);
+        }
+      };
+});
+  })
   function init($rootScope, $state) {
     $rootScope.islogin = false;
     $rootScope.$on('$stateChangeStart', function(event, next) {
@@ -96,4 +119,5 @@ angular
           $state.go('forbidden');
       }
     })
+
   } 
