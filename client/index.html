@@ -26,14 +26,50 @@
           <a ng-if="islogin==false" ui-sref='login' class='navbar-brand'>Login</a>
           <a ng-if='islogin==false' ui-sref='regist' class='navbar-brand'>Regist</a>
           <a ng-if='islogin==true' ui-sref='logout' class="navbar-brand">Logout</a>
-          <md-menu>
-            <button ng-click="$mdOpenMenu()">
-              Hello
-            </button>
         </div>
       </div>
     </div>
-
+    <md-toolbar class="md-menu-toolbar">
+        <div layout="row">
+          <md-menu-bar>
+            <md-menu class="navbar-brand">
+              <button ng-click="$mdOpenMenu()">
+                Hello
+              </button>
+              <md-menu-content>
+                <md-menu-item>
+                  <md-button>test</md-button>
+                </md-menu-item>
+              </md-menu-content>
+          </md-menu>
+          <md-menu>
+            <button ui-sref="mainpage" class="navbar-brand">
+              LoopBack Angular example
+            </button>
+          </md-menu>
+          <md-menu >
+            <button ng-if="islogin==false" ui-sref='login' class="navbar-brand">
+              Login
+            </button>
+          </md-menu>
+          <md-menu>
+            <button ng-if="islogin==true" class="navbar-brand" ui-sref="home">
+              Home
+            </button>
+          </md-menu>
+          <md-menu>
+            <button ng-if='islogin==false' ui-sref='regist' class='navbar-brand'>
+              Regist
+            </button>
+          </md-menu>
+          <md-menu>
+            <button ng-if='islogin==true' ui-sref='logout' class="navbar-brand">
+              Logout
+            </button>
+          </md-menu>
+        </md-menu-bar>
+      </div>
+    </md-toolbar>
     <div class="container">
       <div ui-view></div>
     </div>
