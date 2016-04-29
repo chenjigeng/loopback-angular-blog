@@ -17,7 +17,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-app="app">
+  <body ng-app="app" layout='column'>
+    <section layout='row' flex>
+    <!--
     <div class="navbar navbar-inverse navbar-fixed-top" layout='row' role="navigation" id = 'navbar'>
       <div class="container">
         <div class="navbar-header">
@@ -28,7 +30,21 @@
           <a ng-if='islogin==true' ui-sref='logout' class="navbar-brand">Logout</a>
         </div>
       </div>
-    </div>
+    </div>-->
+    <md-sidenav ms-scroll class='md-sidenav-left md-whiteframe-z2'md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" flex='10'>
+      <md-toolbar class="md-theme-indigo" layout-align="center center">
+        <div layout="row" layout-align="center center">
+          <span class="md-primary md-block" ui-sref="mainpage">Bloger</span>
+        </div>
+      </md-toolbar>
+        <md-button ui-sref="mainpage" class="md-primary md-block nav">MainPage</md-button>
+        <md-button ng-if="islogin==true" ui-sref="home" class="md-primary md-block nav">Home</md-button>
+        <md-button ng-if="islogin==false" ui-sref="login" class="md-primary md-ink-ripple nav">Login</md-button>
+        <md-button ng-if='islogin==false' ui-sref="regist" class="md-primary md-block nav">Regist</md-button>
+        <md-button ng-if="islogin==true" ui-sref='logout' class="md-primary md-block nav">Logout</md-button>
+    </md-sidenav>
+
+    <!--
     <md-toolbar class="md-menu-toolbar">
         <div layout="row">
           <md-menu-bar>
@@ -69,10 +85,11 @@
           </md-menu>
         </md-menu-bar>
       </div>
-    </md-toolbar>
-    <div class="container">
-      <div ui-view></div>
-    </div>
+    </md-toolbar>-->
+      <div class="container main" ms-scroll>
+        <div ui-view></div>
+      </div>
+    </section>
     <script src="vendor/jquery/dist/jquery.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
     <script src="static/js/moment.min.js"></script>

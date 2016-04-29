@@ -5,7 +5,14 @@
 		.controller('UserRegistCtrl', RegistCtrl)
 		.controller("UserLoginCtrl", LoginCtrl)
 		.controller("UserLogoutCtrl", LogoutCtrl)
-		.controller("ProfileCtrl", ProfileCtrl);
+		.controller("ProfileCtrl", ProfileCtrl)
+		.controller("ForbidCtrl", ForbidCtrl);
+	ForbidCtrl.$inject = ['$scope', '$interval', "$state"];
+	function ForbidCtrl($scope, $interval, $state) {
+		$interval(function() {
+			$state.go("login");
+		}, 3000, 1);
+	}
 	ProfileCtrl.$inject = ['$scope', "Owner", "$rootScope"];
 	function ProfileCtrl($scope, Owner, $rootScope) {
 					Owner

@@ -53,13 +53,13 @@ angular
             controller: "ProfileCtrl"
           }      
         },
-        //authenticate: true
+        authenticate: true
       })
       .state("create-page", {
         url: "/create",
         templateUrl: "views/create-page.html",
         controller: "CreatePageCtrl",
-        //authenticate: true
+        authenticate: true
       })
       .state("passages", {
         url: '/passages',
@@ -70,15 +70,15 @@ angular
         url: "/edit-passage",
         templateUrl: "views/editpassage.html",
         controller: "EditPageCtrl",
-        //authenticate: true
+        authenticate: true
       })
       .state("show-passage", {
         url: "/show-passage",
         templateUrl: "views/show-passage.html",
-        controller: "PageCtrl",
-        //authenticate: true
+        controller: "PageCtrl"
       })
       .state("forbidden", {
+        controller: 'ForbidCtrl',
         url: '/forbidden',
         templateUrl: "views/forbidden.html"
       })

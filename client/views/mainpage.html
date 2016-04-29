@@ -1,10 +1,11 @@
 <div>
-	<h1>Hello, this is mainpage</h1>
-	<div class="md-whiteframe-5dp main-passage" layout-warp>
-		<md-input-container  flex='10' class='query' flex-offset="15">
-        	<label>query</label>
-        	<input required md-no-asterisk name="description" ng-model="query">
-   		</md-input-container>
+	<div class="md-whiteframe-5dp main-passage mt20" layout-warp>
+		<div layout='row' layout-align='end'>
+			<md-input-container  flex='15' class='query'>
+	        	<label>关键字</label>
+	        	<input required md-no-asterisk name="description" ng-model="query">
+	   	</md-input-container>
+	  </div>
 		<div ng-repeat="passage in passages | filter:query" class='md-title passage'>
 			<p><a ng-click="check(passage.id)">{{passage.title}}</a></p>
 		</div>

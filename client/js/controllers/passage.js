@@ -26,19 +26,24 @@
 				})
 			}
 			function submitComment() {
-				Comment
-					.create({
-						content: $scope.comment,
-						passageId: $rootScope.passId,
-						create_time: new Date(),
-						ownerId: $rootScope.currentUser.id,
-						pride: 0
-					})
-					.$promise
-					.then(function(comment) {
-						getPassage();
-						$scope.comment = "";
-					})
+				if (!$rootScope.currentUser) {
+					$state.go("forbidden");
+				}
+				else {
+					Comment
+						.create({
+							content: $scope.comment,
+							passageId: $rootScope.passId,
+							create_time: new Date(),
+							ownerId: $rootScope.currentUser.id,
+							pride: 0
+						})
+						.$promise
+						.then(function(comment) {
+							getPassage();
+							$scope.comment = "";
+						})
+					}
 			}
 			function getPassage() {
 				Passage
