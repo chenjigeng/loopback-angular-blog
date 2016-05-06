@@ -6,8 +6,8 @@
 	        	<input required md-no-asterisk name="description" ng-model="query">
 	   	</md-input-container>
 	  </div>
-		<div ng-repeat="passage in passages | filter:query" class='md-title passage'>
-			<p><a ng-click="check(passage.id)">{{passage.title}}</a></p>
+		<div ng-repeat="passage in passages | filter:query" class='md-title passage p-10'>
+			<p class="pl-10"><a ng-click="check(passage.id)">{{passage.title}}</a></p>
 		</div>
 	</div>
 	<div ui-view></div>

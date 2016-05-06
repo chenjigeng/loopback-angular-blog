@@ -27,6 +27,11 @@
       "type": "hasOne",
       "model": "Profile",
       "foreignKey": ""
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "comment",
+      "foreignKey": ""
     }
   },
   "acls": [

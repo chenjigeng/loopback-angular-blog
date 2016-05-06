@@ -1,10 +1,32 @@
-<div class="md-whiteframe-5dp p10 m10">
-	<h1>你的文章:</h1>
-	<div ng-repeat="passage in passages">
-		<div class='md-title passage'>
-			<div><a ng-click="check(passage.id)">{{passage.title}}</a></div>
+<div class="md-whiteframe-5dp p10 m10" layout='row'>
+	<div flex='100'>
+		<h1>你的文章:</h1>
+		<div ng-repeat="passage in passages">
+			<div class='md-title passage'>
+				<div><a ng-click="check(passage.id)">{{passage.title}}</a></div>
+			</div>
+			<md-button class="md-primary md-raised" ng-click="edit(passage.id)">编辑</md-button>
+			<md-button ng-click="remove(passage.id)" class="md-warn md-raised m10">删除</md-button>
 		</div>
-		<md-button class="md-primary md-raised" ng-click="edit(passage.id)">编辑</md-button>
-		<md-button ng-click="remove(passage.id)" class="md-warn md-raised m10">删除</md-button>
 	</div>
-</div
+</div>
+<div class="md-whiteframe-5dp p10 m10" layout='row'>
+	<div flex='100'>
+		<h1>你发表的评论:</h1>
+		<div ng-repeat="comment in comments" class="md-whiteframe-5dp mb-10 p-10">
+			<div class='md-title passage'>
+				<div><a ng-click="check(comment.passage.id)">{{comment.passage.title}}</a></div>
+			</div>
+			<div class='comment-num md-whiteframe-5dp comments' >
+				<p>你的评论:{{comment.content}}</p>
+				<div layout-align='end' layout='row'>
+					<span ng-click="pride(comment.id, $index)">赞({{ comment.pride }})</span>
+				</div>
+				<!-- icon-thumb-up-outline  icon-thumb-up-->
+			<!--<button ng-click='deletecom(comment.id)'>删除评论</button>-->
+			</div>
+			<md-button class="md-primary md-raised" ng-click="editComment(comment.id)">修改评论</md-button>
+			<md-button ng-click="removeComment(comment.id)" class="md-warn md-raised m10">删除</md-button>
+		</div>
+	</div>
+</div>

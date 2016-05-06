@@ -83,12 +83,14 @@
 			}
 		}
 
-		ShowUserPageCtrl.$inject = ['$scope', "Passage", "$window", "Owner", "$rootScope", '$state'];
-		function ShowUserPageCtrl($scope, Passage, $window, Owner, $rootScope, $state, $moment) {
+		ShowUserPageCtrl.$inject = ['$scope', "Passage", "$window", "Owner", "$rootScope", '$state', "Comment"];
+		function ShowUserPageCtrl($scope, Passage, $window, Owner, $rootScope, $state, Comment) {
 			$scope.passages = [];
 			$scope.edit = edit;
 			$scope.remove = remove;
 			$scope.check = check;
+			$scope.removeComment = removeComment;
+			$scope.editComment = editComment;
 			getPassage();
 			function getPassage() {
 				Passage
@@ -97,12 +99,15 @@
 							where: {
 								ownerId: $rootScope.currentUser.id
 							},
-							include: ['owner', 'comments']
+							include: [{'owner': {"comments": "passage"}}, 'comments']
 						}
 					})
 					.$promise
 					.then(function(passage) {
 						$scope.passages = passage;
+						$scope.comments = passage[0].owner.comments;
+						console.log(passage[0]);
+						console.log($scope.comments);
 					})
 			}
 			function edit(id) {
@@ -121,6 +126,20 @@
 			function check(id) {
 				$rootScope.passId = id;
 				$state.go("show-passage");
+			}
+			function editComment() {
+
+			}
+			function removeComment(id) {
+				console.log("enter");
+				Comment.deleteById({
+					id: id
+				})
+				.$promise
+				.then(function() {
+					console.log("enterr1");
+					$state.go("mainpage");
+				})
 			}
 		}
 		ShowPageCtrl.$inject = ['$scope', 'Passage', "$window", "Owner", "$rootScope", "$state"];

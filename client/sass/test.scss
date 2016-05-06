@@ -1,0 +1,35 @@
+@for $i from 1 through 20 {
+	.p-#{5 * $i} {padding: #{($i * 5) + 'px'}}
+	.pt-#{5 * $i} {
+	  padding-top: #{($i * 5) + 'px'}
+	}
+	.pb-#{5 * $i} {
+	  padding-bottom: #{($i * 5) + 'px'}
+	}
+	.pl-#{5 * $i} {
+	  padding-left: #{($i * 5) + 'px'}
+	}
+	.pr-#{5 * $i} {
+	  padding-right: #{($i * 5) + 'px'}
+	}
+	.mt-#{5 * $i} {
+	  margin-top: #{($i * 5) + 'px'}
+	}
+	.m-#{5 * $i} {
+	  margin: #{($i * 5) + 'px'}
+	}
+	.mb-#{5 * $i} {
+	  margin-bottom:  #{($i * 5) + 'px'}
+	}
+	.ml-#{5 * $i} {
+	  margin-left:  #{($i * 5) + 'px'}
+	}
+	.mr-#{5 * $i} {
+	  margin-right:  #{($i * 5) + 'px'}
+	}
+}
+
+.forbidden {
+	width: 400px;
+	height: 400px;
+}

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
     <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/test.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,11 +38,12 @@
           <span class="md-primary md-block" ui-sref="mainpage">Bloger</span>
         </div>
       </md-toolbar>
-        <md-button ui-sref="mainpage" class="md-primary md-block nav">MainPage</md-button>
-        <md-button ng-if="islogin==true" ui-sref="home" class="md-primary md-block nav">Home</md-button>
-        <md-button ng-if="islogin==false" ui-sref="login" class="md-primary md-ink-ripple nav">Login</md-button>
-        <md-button ng-if='islogin==false' ui-sref="regist" class="md-primary md-block nav">Regist</md-button>
-        <md-button ng-if="islogin==true" ui-sref='logout' class="md-primary md-block nav">Logout</md-button>
+        <md-button ui-sref="mainpage" class="md-primary md-block nav">首页</md-button>
+        <md-button ng-if="islogin==true" ui-sref="home" class="md-primary md-block nav">主页</md-button>
+        <md-button ng-if="islogin==false" ui-sref="login" class="md-primary md-ink-ripple nav">登录</md-button>
+        <md-button ng-if='islogin==false' ui-sref="regist" class="md-primary md-block nav">注册</md-button>
+        <md-button ng-if="islogin==true" ui-sref='logout' class="md-primary md-block nav">登出</md-button>
+        <md-button ng-if="islogin==true" ui-sref='create-page' class="md-primary md-block nav">创建文章</md-button>
     </md-sidenav>
 
     <!--
